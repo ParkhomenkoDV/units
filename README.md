@@ -7,7 +7,7 @@
 ## Install
 
 ### Python
-```python
+```bash
 pip install --upgrade git+https://github.com/ParkhomenkoDV/units.git@main
 ```
 
