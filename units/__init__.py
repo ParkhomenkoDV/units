@@ -1,5 +1,6 @@
 from .prefixes import prefixes
 from .units import (
+    Unit,
     ampere,
     angstrom,
     are,
@@ -51,6 +52,7 @@ from .units import (
 
 # import *
 __all__ = (
+    Unit,
     ampere,
     candela,
     kelvin,
