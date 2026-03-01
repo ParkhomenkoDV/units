@@ -6,12 +6,46 @@
 
 ## Install
 
+### Python
+```python
+pip install --upgrade git+https://github.com/ParkhomenkoDV/units.git@main
+```
+
 ### Go
 ```bash
 go get github.com/ParkhomenkoDV/units
 ```
 
 ## Usage
+
+### Python
+
+```python
+from units import prefixes
+from units import meter, second, watt, newton, pascal, joule
+
+def main() {
+    # Использование базовых единиц
+    distance = 5 * meter
+    time = 10 * second
+    speed = distance / time
+    
+    # Использование префиксов
+    length = 3 * prefixes["k"] * meter # 3 километра
+    power = 2.5 * prefixes["M"] * watt # 2.5 мегаватта
+    
+    # Использование производных единиц
+    force = 10 * newton
+    pressure = 2 * pascal
+    energy = 100 * joule
+    
+    # Конвертация между единицами
+    meters = 1609.344 * meter
+    miles = meters / mile # = 1.0
+}
+```
+
+### Go
 
 ```go
 import "github.com/ParkhomenkoDV/units"
