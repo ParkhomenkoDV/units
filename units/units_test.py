@@ -1,6 +1,9 @@
 import pytest
 
-from .units import Unit, UnitError
+try:
+    from .units import Unit, UnitError
+except ImportError:
+    from units import Unit, UnitError
 
 
 class TestUnit:
@@ -187,3 +190,7 @@ class TestUnit:
         result = (unit * 2) / 4 * 3
         assert result == 7.5
         assert isinstance(result, float)
+
+
+if __name__ == "__main__":
+    pytest.main([__file__, "-v", "-s", "-x", "--benchmark-columns=min,max,mean,stddev,median,rounds,outliers", "--benchmark-sort=name", "--benchmark-min-rounds=10"])
