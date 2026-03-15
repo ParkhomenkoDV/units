@@ -1,0 +1,18 @@
+[package]
+name = "units"
+version = "0.1.0"
+edition = "2021"
+authors = ["Daniil Andryushin"]
+description = "Библиотека для работы с единицами измерения"
+repository = "https://github.com/ParkhomenkoDV/units.git"
+license = "MIT"
+
+[lib]
+name = "units"
+path = "src/lib.rs"
+
+[dependencies]
+num-traits = "0.2"
+
+[dev-dependencies]
+approx = "0.5"

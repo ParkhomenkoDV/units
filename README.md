@@ -16,6 +16,12 @@ pip install --upgrade git+https://github.com/ParkhomenkoDV/units.git@main
 go get github.com/ParkhomenkoDV/units
 ```
 
+### Rust
+```toml
+[dependencies]
+units = { git = "https://github.com/ParkhomenkoDV/units.git" }
+```
+
 ## Usage
 
 ### Python
@@ -68,6 +74,59 @@ func main() {
     // Конвертация между единицами
     meters := 1609.344 * units.Meter
     miles := meters / units.Mile // = 1.0
+}
+```
+
+### Rust
+
+```rust
+use units::{
+    // Базовые единицы
+    meter, second, 
+    // Производные единицы
+    watt, newton, pascal, joule,
+    // Внесистемные единицы
+    mile,
+    // Префиксы
+    prefixes
+};
+
+fn main() {
+    // Использование базовых единиц
+    let distance = 5.0 * meter;
+    let time = 10.0 * second;
+    let speed = distance / time; // 0.5
+    
+    println!("Скорость: {} м/с", speed);
+    
+    // Использование префиксов
+    let length = 3.0 * prefixes::get("k").unwrap() * meter; // 3 километра = 3000 м
+    let power = 2.5 * prefixes::get("M").unwrap() * watt;   // 2.5 мегаватта = 2_500_000 Вт
+    
+    println!("Длина: {} м", length);
+    println!("Мощность: {} Вт", power);
+    
+    // Использование производных единиц
+    let force = 10.0 * newton;
+    let pressure = 2.0 * pascal;
+    let energy = 100.0 * joule;
+    
+    println!("Сила: {} Н", force);
+    println!("Давление: {} Па", pressure);
+    println!("Энергия: {} Дж", energy);
+    
+    // Конвертация между единицами
+    let meters = 1609.344 * meter;
+    let miles = meters / mile; // = 1.0
+    
+    println!("{} м = {} миль", meters, miles);
+    
+    // Дополнительные примеры
+    let area = 100.0 * meter * meter;
+    println!("Площадь: {} м²", area);
+    
+    let speed_kmh = 100.0 * (prefixes::get("k").unwrap() * meter) / hour;
+    println!("Скорость: {} км/ч", speed_kmh);
 }
 ```
 
